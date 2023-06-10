@@ -1,5 +1,8 @@
 package services;
 
+import static io.restassured.RestAssured.given;
+import static org.hamcrest.Matchers.equalTo;
+
 import com.github.javafaker.Faker;
 import dto.Category;
 import dto.Pet;
@@ -14,17 +17,17 @@ import io.restassured.response.ValidatableResponse;
 import io.restassured.specification.RequestSpecification;
 import io.restassured.specification.ResponseSpecification;
 import org.hamcrest.Matchers;
+
 import java.util.ArrayList;
 import java.util.List;
-import static io.restassured.RestAssured.given;
-import static org.hamcrest.Matchers.equalTo;
 
 
 public class PetService {
-  Faker faker = new Faker();
-  List<String> photoUrls = new ArrayList<>();
-  List<Tag> tags = new ArrayList<>();
-  Pet pet = null;
+  private Faker faker = new Faker();
+  private List<String> photoUrls = new ArrayList<>();
+  private List<Tag> tags = new ArrayList<>();
+  private Pet pet = null;
+
   private static final String BASE_URI = System.getProperty("base.uri");
   private RequestSpecification requestSpecification;
   private ResponseSpecification responseSpecification;

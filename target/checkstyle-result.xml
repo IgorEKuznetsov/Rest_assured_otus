@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<checkstyle version="8.19">
+<file name="C:\Users\Игорь\Desktop\ikv\otus\Rest_assured_otus\src\main\java\dto\Category.java">
+</file>
+<file name="C:\Users\Игорь\Desktop\ikv\otus\Rest_assured_otus\src\main\java\dto\Pet.java">
+</file>
+<file name="C:\Users\Игорь\Desktop\ikv\otus\Rest_assured_otus\src\main\java\dto\Tag.java">
+</file>
+<file name="C:\Users\Игорь\Desktop\ikv\otus\Rest_assured_otus\src\main\java\services\PetService.java">
+</file>
+<file name="C:\Users\Игорь\Desktop\ikv\otus\Rest_assured_otus\src\test\java\PetNegativeTests.java">
+</file>
+<file name="C:\Users\Игорь\Desktop\ikv\otus\Rest_assured_otus\src\test\java\PetTests.java">
+</file>
+</checkstyle>
