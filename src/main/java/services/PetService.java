@@ -7,6 +7,7 @@ import com.github.javafaker.Faker;
 import dto.Category;
 import dto.Pet;
 import dto.Tag;
+import io.qameta.allure.restassured.AllureRestAssured;
 import io.restassured.RestAssured;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.builder.ResponseSpecBuilder;
@@ -42,6 +43,7 @@ public class PetService {
     requestSpecification = new RequestSpecBuilder()
         .setBaseUri(BASE_URI)
         .setContentType(ContentType.JSON)
+        .addFilter(new AllureRestAssured())
         .build();
 
     responseSpecification = new ResponseSpecBuilder()
