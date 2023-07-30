@@ -1,13 +1,14 @@
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.lessThan;
 
+import io.qameta.allure.Feature;
 import io.restassured.response.ValidatableResponse;
 import org.apache.http.HttpStatus;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import services.PetService;
 
-
+@Feature("Negative tests")
 public class PetNegativeTests {
   PetService petService = new PetService();
 

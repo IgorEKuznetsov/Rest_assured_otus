@@ -1,11 +1,12 @@
 
 import dto.Pet;
+import io.qameta.allure.Feature;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import services.PetService;
-
+@Feature("Positive tests")
 public class PetTests {
   PetService petService = new PetService();
   int petId;

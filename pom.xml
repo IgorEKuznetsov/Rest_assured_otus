@@ -18,6 +18,7 @@
         <junit.version>5.9.3</junit.version>
         <maven.compiler.plugin.version>3.8.1</maven.compiler.plugin.version>
         <base.uri>https://petstore.swagger.io/v2</base.uri>
+        <aspectj.version>1.9.9.1</aspectj.version>
     </properties>
 
     <dependencies>
@@ -86,7 +87,11 @@
             <artifactId>jackson-databind</artifactId>
             <version>${jackson.version}</version>
         </dependency>
-
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-junit5</artifactId>
+            <version>2.23.0</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -96,13 +101,45 @@
                     <artifactId>maven-surefire-plugin</artifactId>
                     <version>3.1.0</version>
                     <configuration>
-
+                        <properties>
+                            <property>
+                                <name>listener</name>
+                                <value>io.qameta.allure.junit5.AllureJunit5</value>
+                            </property>
+                        </properties>
+                        <systemProperties>
+                            <property>
+                                <name>junit.jupiter.extensions.autodetection.enabled</name>
+                                <value>true</value>
+                            </property>
+                        </systemProperties>
                         <systemPropertyVariables>
                             <base.uri>${base.uri}</base.uri>
                             <test.project.status>test</test.project.status>
                             <test.project.language>RU</test.project.language>
+                            <allure.results.directory>${project.basedir}/allure-results</allure.results.directory>
                         </systemPropertyVariables>
+                        <argLine>
+                            -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
+                        </argLine>
                     </configuration>
+                    <dependencies>
+                        <dependency>
+                            <groupId>org.junit.jupiter</groupId>
+                            <artifactId>junit-jupiter-api</artifactId>
+                            <version>${junit.version}</version>
+                        </dependency>
+                        <dependency>
+                            <groupId>org.junit.jupiter</groupId>
+                            <artifactId>junit-jupiter-engine</artifactId>
+                            <version>${junit.version}</version>
+                        </dependency>
+                        <dependency>
+                            <groupId>org.aspectj</groupId>
+                            <artifactId>aspectjweaver</artifactId>
+                            <version>${aspectj.version}</version>
+                        </dependency>
+                    </dependencies>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
